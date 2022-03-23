@@ -1,0 +1,100 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    // "source.fixAll.stylelint": true
+  },
+  "npm.packageManager": "yarn",
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.nodePath": "./fe/node_modules",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "eslint.packageManager": "yarn",
+  "eslint.options": {
+    "extensions": [
+      ".js"
+    ],
+    "configFile": ".eslintrc.js"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // PHP CS validtion
+  "phpcs.enable": true,
+  "phpcs.standard": "./be/www/wp-content/themes/jobsohio/phpcs.xml",
+  "phpcs.executablePath": "./be/www/wp-content/themes/jobsohio/vendor/bin/phpcs",
+  "phpmd.enabled": true,
+  "phpmd.rules": "./be/www/wp-content/themes/jobsohio/phpmd.xml",
+  "phpmd.clearOnClose": true,
+  "todohighlight.include": [
+    "be/www/wp-content/themes/jobsohio/**/*.php"
+  ],
+  "todohighlight.maxFilesForSearch": 100,
+  "files.exclude": {
+    "**/.next": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.history": true,
+    // "**/node_modules": true,
+    // "**/vendor": true,
+    //   "**/wp-admin": true,
+    //   "**/wp-includes": true,
+  },
+  "search.exclude": {
+    "**/yarn.lock": true,
+    "**/composer.lock": true,
+  },
+  "eslint.run": "onSave",
+  "eslint.lintTask.enable": true,
+  "editor.bracketPairColorization.enabled": true,
+  "tailwindcss.colorDecorators": "inherit", // inherit from "editor.colorDecorators"
+  "tailwindcss.references": true,
+  "tailwindcss.diagnostics": {
+    "enabled": true,
+    "conflict": "strict",
+    "emptyClass": true,
+    "emptyGroup": true,
+    "emptyCssProperty": true
+  },
+  "tailwindcss.preferVariantWithParentheses": false,
+  "tailwindcss.fallbackDefaultConfig": true,
+  "tailwindcss.enabled": true,
+  "tailwindcss.jsxPropImportChecking": true,
+  "tailwindcss.rootFontSize": 16,
+  "tailwindcss.logLevel": "info",
+  "tailwindcss.documentColors": false,
+  "workbench.editor.labelFormat": "short",
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 57573,
+      "driver": "MySQL",
+      "name": "JobsOhio Redesign",
+      "database": "wp",
+      "username": "dbuser",
+      "password": "dbpass"
+    }
+  ],
+  // "intelephense.references.exclude": [
+  //   "**/.cache",
+  //   "**/.history",
+  //   "**/node_modules",
+  //   "**/.git",
+  //   "**/.DS_Store",
+  // ],
+}

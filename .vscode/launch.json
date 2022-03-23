@@ -1,0 +1,39 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost",
+      "webRoot": "${workspaceFolder}/fe"
+    },
+    // /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222
+    // https://github.com/Microsoft/vscode-chrome-debug
+    {
+      "name": "Attach Chrome",
+      "request": "attach",
+      "port": 9222,
+      "type": "chrome",
+      "webRoot": "${workspaceFolder}/fe"
+    },
+    {
+      "name": "Listen for XDebug",
+      "type": "php",
+      "request": "launch",
+      "port": 9000,
+      "pathMappings": {
+        "/var/www/html": "${workspaceFolder}/be/www"
+      },
+      "ignore": [
+        "**/vendor/**",
+        "**/wp-includes/**",
+        "**/wp-admin/**",
+        "**/wp-content/plugins/**",
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  // https://code.visualstudio.com/docs/editor/tasks-appendix
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Fix CS (PHPCBF)",
+      "detail": "Fix code styling",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "vendor/bin/phpcbf",
+      "options": {
+        "cwd": "${workspaceFolder}/be/www/wp-content/themes/jobsohio",
+      },
+      "args": [
+        "--standard=phpcs.xml",
+        "${file}"
+      ]
+    },
+    {
+      "label": "Check WP log",
+      "detail": "Check the log of WordPress",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "tail",
+      // tail -n 20 be/www/wp-content/debug.log | sed '/^#/d' | sed '/Xdebug: /d' | sed '/^Stack trace:/d'
+      "args": [
+        "-f",
+        "-n",
+        "20",
+        "${workspaceFolder}/be/www/wp-content/debug.log",
+      ]
+    },
+    // https://gist.github.com/jrobinsonc/d1672d16bdfd930b7e43ea19f40fd1d3
+    {
+      "label": "PhpStan",
+      "detail": "Run PhpStan",
+      "type": "process",
+      "problemMatcher": {
+        "owner": "php",
+        "fileLocation": ["absolute"],
+        "severity": "warning",
+        "pattern": {
+          "regexp": "^(.+):(\\d+):(.+)$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        }
+      },
+      "command": "vendor/bin/phpstan",
+      "options": {
+        "cwd": "${workspaceFolder}/be/www/wp-content/themes/jobsohio",
+      },
+      "args": [
+        "analyse",
+        "--no-progress",
+        "--error-format=raw",
+        "${file}"
+      ],
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "Check PHPCS",
+      "detail": "Check code styling",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "vendor/bin/phpcs",
+      "options": {
+        "cwd": "${workspaceFolder}/be/www/wp-content/themes/jobsohio",
+      },
+      "args": [
+        "--standard=phpcs.xml",
+        "--report-full",
+        "${file}"
+      ]
+    },
+    {
+      "label": "Check PHPMD",
+      "detail": "Check code logic",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "vendor/bin/phpmd",
+      "options": {
+        "cwd": "${workspaceFolder}/be/www/wp-content/themes/jobsohio",
+      },
+      "args": [
+        "${file}",
+        "text",
+        "phpmd.xml"
+      ]
+    },
+    {
+      "label": "ESLint",
+      "detail": "Lint Javascript",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "./node_modules/.bin/eslint",
+      "options": {
+        "cwd": "${workspaceFolder}/fe",
+      },
+      "args": [
+        "${file}"
+      ]
+    },
+    {
+      "label": "ESLint Fix",
+      "detail": "Fix Javascript",
+      "type": "shell",
+      "problemMatcher": [],
+      "command": "./node_modules/.bin/eslint",
+      "options": {
+        "cwd": "${workspaceFolder}/fe",
+      },
+      "args": [
+        "--fix",
+        "${file}"
+      ]
+    }
+  ]
+}
