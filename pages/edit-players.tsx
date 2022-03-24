@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import React, { useEffect } from "react";
 import { styled, keyframes } from "@stitches/react";
 import { violet, blackA, mauve, green, red, blue } from "@radix-ui/colors";
