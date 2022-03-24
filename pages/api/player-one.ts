@@ -17,7 +17,7 @@ export default function handler(
     res.status(200).json(playerOneData);
   }
   else if (req.method === 'POST') {
-    fs.writeFile('././public/data/player-one.json',JSON.stringify(req.body), function(){console.log('done')})
+    fs.writeFile('././data/player-one.json',JSON.stringify(req.body), function(){console.log('done')})
     return res.status(200).json(req.body);
   }
 }
