@@ -184,19 +184,31 @@ const EditPlayers = () => {
     record: string;
     lifeTotal?: string;
     gameScore?: string;
-  }>({});
+  }>({
+    name: "",
+    archetype: "",
+    record: "",
+  });
   const [playerTwoState, setPlayerTwoState] = React.useState<{
     name: string;
     archetype: string;
     record: string;
     lifeTotal?: string;
     gameScore?: string;
-  }>({});
+  }>({
+    name: "",
+    archetype: "",
+    record: "",
+  });
   const [eventState, setEventState] = React.useState<{
     eventName: string;
     roundInformation: string;
     format: string;
-  }>({});
+  }>({
+    eventName: "",
+    roundInformation: "",
+    format: "",
+  });
   const changePlayerOneData = async () => {
     const JSONdata = JSON.stringify(playerOneState);
     const endpoint = "/api/player-one";
