@@ -532,7 +532,6 @@ const EditPlayers = () => {
         </Flex>
       </Flex>
       <Button
-        size="large"
         variant="darkRed"
         onClick={(e) => {
           changePlayerOneData();
@@ -542,7 +541,6 @@ const EditPlayers = () => {
         Update Stream Data
       </Button>
       <Button
-        size="large"
         variant="darkRed"
         onClick={(e) => {
           Promise.resolve()
@@ -569,7 +567,6 @@ const EditPlayers = () => {
         Reset Life Totals
       </Button>
       <Button
-        size="large"
         variant="darkRed"
         onClick={(e) => {
           setPlayerOneState((prevState) => {
@@ -592,7 +589,7 @@ const EditPlayers = () => {
       </Button>
       <Dialog>
         <DialogTrigger asChild>
-          <Button size="large">Edit Player One</Button>
+          <Button>Edit Player One</Button>
         </DialogTrigger>
         <DialogContent>
           <DialogTitle>Edit Player One</DialogTitle>
@@ -689,7 +686,7 @@ const EditPlayers = () => {
       </Dialog>
       <Dialog>
         <DialogTrigger asChild>
-          <Button size="large">Edit Player Two</Button>
+          <Button>Edit Player Two</Button>
         </DialogTrigger>
         <DialogContent>
           <DialogTitle>Edit Player Two</DialogTitle>
@@ -786,7 +783,7 @@ const EditPlayers = () => {
       </Dialog>
       <Dialog>
         <DialogTrigger asChild>
-          <Button size="large">Edit Event Information</Button>
+          <Button>Edit Event Information</Button>
         </DialogTrigger>
         <DialogContent>
           <DialogTitle>Edit Event Information</DialogTitle>
