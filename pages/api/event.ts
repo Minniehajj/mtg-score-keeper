@@ -16,7 +16,7 @@ export default function handler(
     res.status(200).json(eventData);
   }
   else if (req.method === 'POST') {
-    fs.writeFile('././data/event.json',JSON.stringify(req.body), function(){console.log('done')})
+    fs.writeFile('/data/event.json',JSON.stringify(req.body), function(){console.log('done')})
     return res.status(200).json(req.body);
   }
 }
