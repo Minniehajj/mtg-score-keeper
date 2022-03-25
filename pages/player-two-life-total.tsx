@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import useSWR from "swr";
 import fetcher from "../lib/fetcher";
@@ -13,9 +14,11 @@ const Strong = styled("strong", {
 const Page: NextPage = () => {
   const [text, setText] = React.useState<string>("");
   const { data } = useSWR("/api/player-two", fetcher);
+  const router = useRouter();
   useEffect(() => {
     if (data) {
       setText(data.lifeTotal);
+      router.replace(router.asPath);
     }
   }, [data]);
   return (
