@@ -14,7 +14,7 @@ const Strong = styled("strong", {
 const Page: NextPage = () => {
   const [text, setText] = React.useState<string>("");
   const [record, setRecord] = React.useState<string>("");
-  const { data } = useSWR("/api/player-one", fetcher, {
+  const { data } = useSWR("/api/player-two", fetcher, {
     refreshInterval: 1000,
   });
 
@@ -32,7 +32,7 @@ const Page: NextPage = () => {
       </Head>
 
       <main>
-        <Strong>{text}</Strong>
+        <Strong>{text + " "}</Strong> <Strong>{record}</Strong>
       </main>
     </div>
   );
