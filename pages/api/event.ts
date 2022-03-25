@@ -8,7 +8,7 @@ type Data = {
 let objectState3 = {
   eventName: '',
   roundInformation: '',
-  format: '0-0',
+  format: '',
 }
 
 export default function handler(
