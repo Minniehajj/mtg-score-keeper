@@ -35,7 +35,7 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="api-response">
         <Strong>{gameScoreOne + " - "}</Strong> <Strong>{gameScoreTwo}</Strong>
       </main>
     </div>

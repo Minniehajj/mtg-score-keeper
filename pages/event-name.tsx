@@ -27,7 +27,7 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="api-response">
         <Strong>{text}</Strong>
       </main>
     </div>
