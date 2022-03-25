@@ -12,14 +12,20 @@ const Strong = styled("strong", {
   fontWeight: "700",
 });
 const Page: NextPage = () => {
-  const [text, setText] = React.useState<string>("");
-  const { data } = useSWR("/api/player-two", fetcher, {
+  const [gameScoreOne, setGameScoreOne] = React.useState<string>("");
+  const [gameScoreTwo, setGameScoreTwo] = React.useState<string>("");
+  const { data } = useSWR("/api/player-one", fetcher, {
     refreshInterval: 1000,
   });
-
+  const playerTwoData = useSWR("/api/player-one", fetcher, {
+    refreshInterval: 1000,
+  });
   useEffect(() => {
     if (data) {
-      setText(data.record);
+      setGameScoreOne(data.gameScore);
+    }
+    if (playerTwoData.data) {
+      setGameScoreTwo(playerTwoData.data.gameScore);
     }
   }, [data]);
   return (
@@ -30,7 +36,7 @@ const Page: NextPage = () => {
       </Head>
 
       <main>
-        <Strong>{text}</Strong>
+        <Strong>{gameScoreOne + " - "}</Strong> <Strong>{gameScoreTwo}</Strong>
       </main>
     </div>
   );
