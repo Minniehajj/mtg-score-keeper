@@ -1,23 +1,28 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import * as playerOneData from '../../public/data/player-one.json';
-import fs from 'fs';
 type Data = {
   name: string,
   archetype: string,
   record: string,
   lifeTotal: string,
 }
+let objectState = {
+  name: '',
+  archetype: '',
+  record: '0-0',
+  lifeTotal: '',
+  gameScore: 0,
+}
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+
   if (req.method === 'GET') {
-    res.status(200).json(playerOneData);
+    res.status(200).json(objectState);
   }
   else if (req.method === 'POST') {
-    fs.writeFile('././public/data/player-one.json',JSON.stringify(req.body), function(){console.log('done')})
+    objectState = req.body;
     return res.status(200).json(req.body);
   }
 }
