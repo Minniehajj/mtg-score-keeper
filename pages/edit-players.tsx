@@ -305,6 +305,9 @@ const EditPlayers = () => {
         <div>
           {playerOneState.name}: <strong>{playerOneState.lifeTotal}</strong>
         </div>
+        <div>
+          Poison Counters: <strong>{playerOneState.poisonTotal}</strong>
+        </div>
         <div>Games Won: {playerOneState.gameScore}</div>
         <Flex
           css={{
@@ -421,6 +424,9 @@ const EditPlayers = () => {
       >
         <div>
           {playerTwoState.name}: <strong>{playerTwoState.lifeTotal}</strong>
+        </div>
+        <div>
+          Poison Counters: <strong>{playerTwoState.poisonTotal}</strong>
         </div>
         <div>Games Won: {playerTwoState.gameScore}</div>
         <Flex
@@ -548,12 +554,14 @@ const EditPlayers = () => {
                 return {
                   ...prevState,
                   lifeTotal: String(20),
+                  poisonTotal: String(0),
                 };
               });
               setPlayerTwoState((prevState) => {
                 return {
                   ...prevState,
                   lifeTotal: String(20),
+                  poisonTotal: String(0),
                 };
               });
             })
@@ -563,7 +571,7 @@ const EditPlayers = () => {
             });
         }}
       >
-        Reset Life Totals
+        Reset Life Totals/Poison Counters
       </Button>
       <Button
         variant="darkRed"
