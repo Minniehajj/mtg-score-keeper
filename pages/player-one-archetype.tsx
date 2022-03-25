@@ -10,7 +10,17 @@ const Strong = styled("strong", {
   fontSize: 50,
   color: "#fff",
   fontWeight: "700",
+  textAlign: "center",
+  marginRight: "1.25rem",
 });
+
+const Main = styled("main", {
+  width: "800px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+});
+
 const Page: NextPage = () => {
   const [text, setText] = React.useState<string>("");
   const [record, setRecord] = React.useState<string>("");
@@ -31,9 +41,9 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="api-response">
+      <Main>
         <Strong>{text + " "}</Strong> <Strong>{record}</Strong>
-      </main>
+      </Main>
     </div>
   );
 };

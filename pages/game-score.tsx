@@ -10,6 +10,15 @@ const Strong = styled("strong", {
   fontSize: 50,
   color: "#fff",
   fontWeight: "700",
+  textAlign: "center",
+  marginRight: ".5rem",
+});
+
+const Main = styled("main", {
+  width: "800px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 });
 const Page: NextPage = () => {
   const [gameScoreOne, setGameScoreOne] = React.useState<string>("");
@@ -35,9 +44,10 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="api-response">
-        <Strong>{gameScoreOne + " - "}</Strong> <Strong>{gameScoreTwo}</Strong>
-      </main>
+      <Main>
+        <Strong>{gameScoreOne + " - "}</Strong>
+        <Strong>{gameScoreTwo}</Strong>
+      </Main>
     </div>
   );
 };

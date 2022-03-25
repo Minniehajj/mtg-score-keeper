@@ -15,11 +15,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-.api-response {
-  width: 800px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  gap: 1rem;
-}

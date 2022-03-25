@@ -10,6 +10,13 @@ const Strong = styled("strong", {
   fontSize: 50,
   color: "#fff",
   fontWeight: "700",
+  textAlign: "right",
+  width: "100%",
+});
+
+const Main = styled("main", {
+  width: "800px",
+  display: "flex",
 });
 const Page: NextPage = () => {
   const [text, setText] = React.useState<string>("");
@@ -27,9 +34,9 @@ const Page: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="api-response">
+      <Main>
         <Strong>{text}</Strong>
-      </main>
+      </Main>
     </div>
   );
 };
