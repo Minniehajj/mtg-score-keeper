@@ -13,13 +13,13 @@ const Strong = styled("strong", {
 });
 const Page: NextPage = () => {
   const [text, setText] = React.useState<string>("");
-  const { data } = useSWR("/api/player-one", fetcher, {
+  const { data } = useSWR("/api/player-two", fetcher, {
     refreshInterval: 1000,
   });
 
   useEffect(() => {
     if (data) {
-      setText(data.name);
+      setText(data.poisonTotal);
     }
   }, [data]);
   return (

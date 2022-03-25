@@ -186,6 +186,7 @@ const EditPlayers = () => {
     record: "",
     gameScore: "0",
     lifeTotal: "20",
+    poisonTotal: "0",
   });
   const [playerTwoState, setPlayerTwoState] = React.useState<Player>({
     id: 2,
@@ -194,6 +195,7 @@ const EditPlayers = () => {
     record: "",
     gameScore: "0",
     lifeTotal: "20",
+    poisonTotal: "0",
   });
   const [eventState, setEventState] = React.useState<Event>({
     id: 1,
@@ -256,6 +258,7 @@ const EditPlayers = () => {
       record: playerOne.record,
       lifeTotal: playerOne.lifeTotal,
       gameScore: playerOne.gameScore,
+      poisonTotal: playerOne.poisonTotal,
     });
     const playerTwo = await playerTwoData;
     setPlayerTwoState({
@@ -265,6 +268,7 @@ const EditPlayers = () => {
       record: playerTwo.record,
       lifeTotal: playerTwo.lifeTotal,
       gameScore: playerTwo.gameScore,
+      poisonTotal: playerTwo.poisonTotal,
     });
     const event = await eventData;
     setEventState({
@@ -644,6 +648,19 @@ const EditPlayers = () => {
                 />
               </Fieldset>
               <Fieldset>
+                <Label htmlFor="poisonTotal">Poison Total</Label>
+                <Input
+                  id="poisonTotal"
+                  type="number"
+                  value={playerOneState.poisonTotal}
+                  onChange={(e) => {
+                    setPlayerOneState((prevState) => {
+                      return { ...prevState, poisonTotal: e.target.value };
+                    });
+                  }}
+                />
+              </Fieldset>
+              <Fieldset>
                 <Label htmlFor="gameScore">Game Score</Label>
                 <Input
                   id="gameScore"
@@ -736,6 +753,19 @@ const EditPlayers = () => {
                   onChange={(e) => {
                     setPlayerTwoState((prevState) => {
                       return { ...prevState, lifeTotal: e.target.value };
+                    });
+                  }}
+                />
+              </Fieldset>
+              <Fieldset>
+                <Label htmlFor="poisonTotal">Poison Total</Label>
+                <Input
+                  id="poisonTotal"
+                  type="number"
+                  value={playerTwoState.poisonTotal}
+                  onChange={(e) => {
+                    setPlayerTwoState((prevState) => {
+                      return { ...prevState, poisonTotal: e.target.value };
                     });
                   }}
                 />

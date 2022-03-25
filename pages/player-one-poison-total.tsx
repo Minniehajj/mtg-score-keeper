@@ -19,7 +19,7 @@ const Page: NextPage = () => {
 
   useEffect(() => {
     if (data) {
-      setText(data.name);
+      setText(data.poisonTotal);
     }
   }, [data]);
   return (

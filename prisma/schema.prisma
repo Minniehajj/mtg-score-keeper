@@ -11,12 +11,13 @@ datasource db {
 }
 
 model Player {
-  id        Int    @id @default(autoincrement())
-  name      String
-  archetype String
-  record    String
-  lifeTotal String
-  gameScore String
+  id          Int    @id @default(autoincrement())
+  name        String
+  archetype   String
+  record      String @default("0-0")
+  lifeTotal   String @default("20")
+  gameScore   String @default("0")
+  poisonTotal String @default(value: "0")
 }
 
 model Event {

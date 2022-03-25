@@ -26,6 +26,7 @@ export default async function handler(
         record: req.body.record,
         lifeTotal: req.body.lifeTotal,
         gameScore: req.body.gameScore,
+        poisonTotal: req.body.poisonTotal,
       }
     });
     return res.status(200).json(result);
