@@ -10,17 +10,13 @@ const Strong = styled("strong", {
 const Page: NextPage = () => {
   const [data, setData] = React.useState<string>("");
   const loadData = async () => {
-    const playerTwoResponse = await fetch("/api/player-two");
-    const playerTwoData = playerTwoResponse.json();
-    const playerTwo = await playerTwoData;
-    setData(playerTwo.lifeTotal);
+    const playerOneResponse = await fetch("/api/player-one");
+    const playerOneData = playerOneResponse.json();
+    const playerOne = await playerOneData;
+    setData(playerOne.gameScore);
   };
   useEffect(() => {
     loadData();
-    const interval = setInterval(() => {
-      loadData();
-    }, 1000);
-    return () => clearInterval(interval);
   }, []);
   return (
     <div>

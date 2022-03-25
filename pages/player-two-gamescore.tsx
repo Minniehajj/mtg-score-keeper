@@ -13,7 +13,7 @@ const Page: NextPage = () => {
     const playerTwoResponse = await fetch("/api/player-two");
     const playerTwoData = playerTwoResponse.json();
     const playerTwo = await playerTwoData;
-    setData(playerTwo.lifeTotal);
+    setData(playerTwo.gameScore);
   };
   useEffect(() => {
     loadData();
