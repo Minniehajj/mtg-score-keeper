@@ -14,7 +14,9 @@ const Page: NextPage = () => {
     const playerTwoResponse = await fetch("/api/player-two");
     const playerTwoData = playerTwoResponse.json();
     const playerTwo = await playerTwoData;
-    setData(playerTwo.archetype);
+    if (playerTwo.archetype !== data) {
+      setData(playerTwo.archetype);
+    }
   };
   useEffect(() => {
     loadData();

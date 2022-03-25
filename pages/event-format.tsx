@@ -14,7 +14,9 @@ const Page: NextPage = () => {
     const res = await fetch("/api/event");
     const data = res.json();
     const eventData = await data;
-    setData(eventData.roundInformation);
+    if (eventData.format !== data) {
+      setData(eventData.format);
+    }
   };
   useEffect(() => {
     loadData();

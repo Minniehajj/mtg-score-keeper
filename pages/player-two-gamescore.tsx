@@ -14,7 +14,9 @@ const Page: NextPage = () => {
     const playerTwoResponse = await fetch("/api/player-two");
     const playerTwoData = playerTwoResponse.json();
     const playerTwo = await playerTwoData;
-    setData(playerTwo.gameScore);
+    if (playerTwo.gameScore !== data) {
+      setData(playerTwo.gameScore);
+    }
   };
   useEffect(() => {
     loadData();

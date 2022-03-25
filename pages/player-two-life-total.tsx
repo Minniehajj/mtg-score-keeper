@@ -14,7 +14,9 @@ const Page: NextPage = () => {
     const playerTwoResponse = await fetch("/api/player-two");
     const playerTwoData = playerTwoResponse.json();
     const playerTwo = await playerTwoData;
-    setData(playerTwo.lifeTotal);
+    if (playerTwo.lifeTotal !== data) {
+      setData(playerTwo.lifeTotal);
+    }
   };
   useEffect(() => {
     loadData();
