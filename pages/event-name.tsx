@@ -6,6 +6,7 @@ import { styled } from "../stitches.config";
 const Strong = styled("strong", {
   fontSize: 50,
   color: "#fff",
+  fontWeight: "700",
 });
 const Page: NextPage = () => {
   const [data, setData] = React.useState<string>("");
