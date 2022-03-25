@@ -22,7 +22,7 @@ const Page: NextPage = () => {
       loadData();
     }, 1000);
     return () => clearInterval(interval);
-  }, [loadData]);
+  }, [loadData()]);
   return (
     <div>
       <Head>

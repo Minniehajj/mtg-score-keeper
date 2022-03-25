@@ -18,7 +18,11 @@ const Page: NextPage = () => {
   };
   useEffect(() => {
     loadData();
-  }, []);
+    const interval = setInterval(() => {
+      loadData();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [loadData()]);
   return (
     <div>
       <Head>
