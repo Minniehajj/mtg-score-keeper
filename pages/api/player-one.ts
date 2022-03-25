@@ -1,28 +1,33 @@
+import { Player } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next'
-type Data = {
-  name: string,
-  archetype: string,
-  record: string,
-  lifeTotal: string,
-}
-let objectState = {
-  name: '',
-  archetype: '',
-  record: '0-0',
-  lifeTotal: '20',
-  gameScore: '0',
-}
+import prisma from '../../lib/primsa';
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Player>
 ) {
 
   if (req.method === 'GET') {
-    res.status(200).json(objectState);
+    const result = await prisma.player.findUnique({
+      where: {
+        id: 1
+      }
+    });
+    res.status(200).json(result);
   }
   else if (req.method === 'POST') {
-    objectState = req.body;
-    return res.status(200).json(req.body);
+    const result = await prisma.player.update({
+      where: {
+        id: 1
+      },
+      data: {
+        name: req.body.name,
+        archetype: req.body.archetype,
+        record: req.body.record,
+        lifeTotal: req.body.lifeTotal,
+        gameScore: req.body.gameScore,
+      }
+    });
+    return res.status(200).json(result);
   }
 }

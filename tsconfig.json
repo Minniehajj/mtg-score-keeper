@@ -24,7 +24,7 @@
     "**/*.ts",
     "**/*.tsx",
     "helpers/users-repo.js"
-  ],
+, "lib/fetcher.js"  ],
   "exclude": [
     "node_modules"
   ]

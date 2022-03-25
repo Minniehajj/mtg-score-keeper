@@ -4,6 +4,7 @@ import { styled, keyframes } from "@stitches/react";
 import { violet, blackA, mauve, green, red, blue } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Player } from "@prisma/client";
 
 const overlayShow = keyframes({
   "0%": { opacity: 0 },
@@ -178,27 +179,21 @@ const Input = styled("input", {
 
 const EditPlayers = () => {
   const [loaded, setLoaded] = React.useState(false);
-  const [playerOneState, setPlayerOneState] = React.useState<{
-    name: string;
-    archetype: string;
-    record: string;
-    lifeTotal?: string;
-    gameScore?: string;
-  }>({
+  const [playerOneState, setPlayerOneState] = React.useState<Player>({
+    id: 1,
     name: "",
     archetype: "",
     record: "",
+    gameScore: "0",
+    lifeTotal: "20",
   });
-  const [playerTwoState, setPlayerTwoState] = React.useState<{
-    name: string;
-    archetype: string;
-    record: string;
-    lifeTotal?: string;
-    gameScore?: string;
-  }>({
+  const [playerTwoState, setPlayerTwoState] = React.useState<Player>({
+    id: 2,
     name: "",
     archetype: "",
     record: "",
+    gameScore: "0",
+    lifeTotal: "20",
   });
   const [eventState, setEventState] = React.useState<{
     eventName: string;

@@ -1,26 +1,31 @@
+import { Event } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next'
-type Data = {
-  eventName: string,
-  roundInformation: string,
-  format: string,
-}
+import prisma from '../../lib/primsa';
 
-let objectState3 = {
-  eventName: '',
-  roundInformation: '',
-  format: '',
-}
-
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Event>
 ) {
 
   if (req.method === 'GET') {
-    res.status(200).json(objectState3);
+    const result = await prisma.event.findUnique({
+      where: {
+        id: 1
+      }
+    });
+    res.status(200).json(result);
   }
   else if (req.method === 'POST') {
-    objectState3 = req.body;
-    return res.status(200).json(req.body);
+    const result = await prisma.event.update({
+      where: {
+        id: 1
+      },
+      data: {
+        eventName: req.body.eventName,
+        roundInformation: req.body.roundInformation,
+        format: req.body.format,
+      }
+    });
+    return res.status(200).json(result);
   }
 }
