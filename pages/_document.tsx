@@ -14,7 +14,6 @@ class MyDocument extends Document {
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
-          <meta http-equiv="refresh" content="300"></meta>
         </Head>
         <body>
           <Main />

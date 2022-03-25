@@ -13,12 +13,13 @@ const Strong = styled("strong", {
 });
 const Page: NextPage = () => {
   const [text, setText] = React.useState<string>("");
-  const { data } = useSWR("/api/player-one", fetcher);
-  const router = useRouter();
+  const { data } = useSWR("/api/player-one", fetcher, {
+    refreshInterval: 1000,
+  });
+
   useEffect(() => {
     if (data) {
       setText(data.lifeTotal);
-      router.replace(router.asPath);
     }
   }, [data]);
   return (

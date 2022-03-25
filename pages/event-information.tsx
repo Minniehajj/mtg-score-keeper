@@ -13,12 +13,11 @@ const Strong = styled("strong", {
 });
 const Page: NextPage = () => {
   const [text, setText] = React.useState<string>("");
-  const { data } = useSWR("/api/event", fetcher);
-  const router = useRouter();
+  const { data } = useSWR("/api/event", fetcher, { refreshInterval: 1000 });
+
   useEffect(() => {
     if (data) {
       setText(data.roundInformation);
-      router.replace(router.asPath);
     }
   }, [data]);
   return (
