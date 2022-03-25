@@ -9,8 +9,8 @@ let objectState = {
   name: '',
   archetype: '',
   record: '0-0',
-  lifeTotal: '',
-  gameScore: 0,
+  lifeTotal: '20',
+  gameScore: '0',
 }
 
 export default function handler(

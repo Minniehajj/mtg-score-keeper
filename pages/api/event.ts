@@ -5,7 +5,7 @@ type Data = {
   format: string,
 }
 
-let objectState = {
+let objectState3 = {
   eventName: '',
   roundInformation: '',
   format: '0-0',
@@ -17,10 +17,10 @@ export default function handler(
 ) {
 
   if (req.method === 'GET') {
-    res.status(200).json(objectState);
+    res.status(200).json(objectState3);
   }
   else if (req.method === 'POST') {
-    objectState = req.body;
+    objectState3 = req.body;
     return res.status(200).json(req.body);
   }
 }

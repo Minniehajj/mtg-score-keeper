@@ -6,12 +6,12 @@ type Data = {
   lifeTotal: string,
 }
 
-let objectState = {
+let objectState2 = {
   name: '',
   archetype: '',
   record: '0-0',
-  lifeTotal: '',
-  gameScore: 0,
+  lifeTotal: '20',
+  gameScore: '0',
 }
 
 export default function handler(
@@ -20,10 +20,10 @@ export default function handler(
 ) {
 
   if (req.method === 'GET') {
-    res.status(200).json(objectState);
+    res.status(200).json(objectState2);
   }
   else if (req.method === 'POST') {
-    objectState = req.body;
+    objectState2 = req.body;
     return res.status(200).json(req.body);
   }
 }
