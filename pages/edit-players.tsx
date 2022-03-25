@@ -4,7 +4,7 @@ import { styled, keyframes } from "@stitches/react";
 import { violet, blackA, mauve, green, red, blue } from "@radix-ui/colors";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { Player } from "@prisma/client";
+import { Player, Event } from "@prisma/client";
 
 const overlayShow = keyframes({
   "0%": { opacity: 0 },
@@ -195,11 +195,8 @@ const EditPlayers = () => {
     gameScore: "0",
     lifeTotal: "20",
   });
-  const [eventState, setEventState] = React.useState<{
-    eventName: string;
-    roundInformation: string;
-    format: string;
-  }>({
+  const [eventState, setEventState] = React.useState<Event>({
+    id: 1,
     eventName: "",
     roundInformation: "",
     format: "",
@@ -253,6 +250,7 @@ const EditPlayers = () => {
     const eventData = eventResponse.json();
     const playerOne = await playerOneData;
     setPlayerOneState({
+      id: 1,
       name: playerOne.name,
       archetype: playerOne.archetype,
       record: playerOne.record,
@@ -261,6 +259,7 @@ const EditPlayers = () => {
     });
     const playerTwo = await playerTwoData;
     setPlayerTwoState({
+      id: 2,
       name: playerTwo.name,
       archetype: playerTwo.archetype,
       record: playerTwo.record,
@@ -269,6 +268,7 @@ const EditPlayers = () => {
     });
     const event = await eventData;
     setEventState({
+      id: 1,
       eventName: event.eventName,
       roundInformation: event.roundInformation,
       format: event.format,
