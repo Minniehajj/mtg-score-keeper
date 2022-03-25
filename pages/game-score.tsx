@@ -17,7 +17,7 @@ const Page: NextPage = () => {
   const { data } = useSWR("/api/player-one", fetcher, {
     refreshInterval: 1000,
   });
-  const playerTwoData = useSWR("/api/player-one", fetcher, {
+  const playerTwoData = useSWR("/api/player-two", fetcher, {
     refreshInterval: 1000,
   });
   useEffect(() => {
