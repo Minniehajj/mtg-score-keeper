@@ -7,7 +7,7 @@ import fetcher from "../lib/fetcher";
 import { styled } from "../stitches.config";
 
 const Strong = styled("strong", {
-  fontSize: 50,
+  fontSize: 40,
   color: "#fff",
   fontWeight: "700",
   textAlign: "center",
